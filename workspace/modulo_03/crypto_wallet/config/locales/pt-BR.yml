@@ -1,0 +1,8 @@
+pt-BR:
+  actual_locale: "Portugues Brasil"
+  hello: "Olá Mundo!"
+  links:
+    edit: "Editar"
+    show: "Mostrar"
+    delete: "Apagar"
+    AYS: "Tem certeza que quer excluir esta moeda?"

@@ -30,11 +30,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  actual_locale: "English (International)"
-  hello: "Hello world"
+  actual_locale: "us-Int"
   links:
     edit: "Edit"
     show: "Show"
     delete: "Delete"
     AYS: "Are you sure?"
-
+    welcome: "Welcome!"
+    App-desc: "This is Crypto Wallet. A cryptocoins registration app."
+    Selection-info: "Select below:"
+    home-page: "Home"
+    back: "Back"
+  new:
+    coin: "New Coin"
+    mining_type: "New Type"
+  edit:
+    coin: "Editing Coin"
+    mining_type: "Editing Type"
+    

@@ -1,8 +1,20 @@
 pt-BR:
-  actual_locale: "Portugues Brasil"
+  actual_locale: "pt-BR"
   hello: "Olá Mundo!"
   links:
     edit: "Editar"
     show: "Mostrar"
     delete: "Apagar"
     AYS: "Tem certeza que quer excluir esta moeda?"
+    welcome: "Seja Bem-Vindo"
+    App-desc: "Este é o Crypto Wallet, um app para você cadastrar suas cryptomoedas!"
+    Selection-info: "Selecione uma das opções abaixo:"
+    home-page: "Início"
+    back: "Voltar"
+  new:
+    coin: "Nova Moeda"
+    mining_type: "Novo Tipo"
+  edit:
+    coin: "Editando Moeda"
+    mining_type: "Editando Tipo"
+    

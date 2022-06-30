@@ -1,8 +1,9 @@
 'pt-BR':
   activerecord:
     models:
-      one: Moeda
-      other: Moedas
+      coin:
+        one: Moeda
+        other: Moedas
       mining_type: 
         one: Tipo de Mineração
         other: Tipos de Mineração

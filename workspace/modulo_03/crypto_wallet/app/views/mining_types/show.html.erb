@@ -1,14 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @mining_type.description %>
-</p>
-
-<p>
-  <strong>Acronym:</strong>
-  <%= @mining_type.acronym %>
-</p>
-
-<%= link_to 'Edit', edit_mining_type_path(@mining_type) %> |
-<%= link_to 'Back', mining_types_path %>
+<div class="container-fluid text-sm-left p-5 bg-primary rounded bg-opacity-25">
+  <p id="notice"><%= notice %></p>
+  
+  <p>
+    <strong>Description:</strong>
+    <%= @mining_type.description %>
+  </p>
+  
+  <p>
+    <strong>Acronym:</strong>
+    <%= @mining_type.acronym %>
+  </p>
+  
+  <%= link_to t('edit.mining_type'), edit_mining_type_path(@mining_type), class: "btn btn-primary btn-sm" %> |
+  <%= link_to t('links.back'), mining_types_path, class: "btn btn-primary btn-sm" %>
+</div>

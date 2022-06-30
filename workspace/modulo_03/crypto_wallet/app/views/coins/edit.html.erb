@@ -1,6 +1,8 @@
-<h1><%= title_name %></h1>
+<div class="container-fluid text-sm-left p-5 bg-primary rounded bg-opacity-25">
+  <h1><%= t('edit.coin') %></h1>
+  
+  <%= render 'form', coin: @coin %>
+  
+  <%= link_to t('links.back'), coins_path, class: "btn btn-primary" %>
+</div>
 
-<%= render 'form', coin: @coin %>
-
-<%= link_to 'Show', @coin %> |
-<%= link_to 'Back', coins_path %>

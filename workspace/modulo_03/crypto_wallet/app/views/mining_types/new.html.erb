@@ -1,5 +1,9 @@
-<h1>New Mining Type</h1>
+<div class="container-fluid text-sm-left p-5 bg-primary rounded bg-opacity-25">
+  <h1><%= t('new.mining_type') %></h1>
 
-<%= render 'form', mining_type: @mining_type %>
+  <%= render 'form', mining_type: @mining_type %>
 
-<%= link_to 'Back', mining_types_path %>
+  <%= link_to t('links.back'), mining_types_path, class: "btn btn-primary btn-sm" %>
+</div>
+
+

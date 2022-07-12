@@ -1,4 +1,28 @@
-<h1>UsersBackoffice::Welcome#index</h1>
-<p>Find me in app/views/users_backoffice/welcome/index.html.erb</p>
+<h1>Seja bem-vindo</h1>
 
-<p> <%= link_to 'Sair [Usuáro]', destroy_user_session_path, method: :delete %> </p>
+<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+  <div class="tile-stats">
+    <div class="icon"><i class="fa fa-comments-o"></i></div>
+    <div class="count"><%= @user_statistic_info.total_questions %></div>
+    <h3>Total</h3>
+    <p style="font-size: 15px">Todas as questões respondidas</p>
+  </div>
+</div>
+
+<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+  <div class="tile-stats">
+    <div class="icon"><i class="fa fa-check-square-o"></i></div>
+    <div class="count"><%= @user_statistic_info.right_questions %></div>
+    <h3>Acertos</h3>
+    <p style="font-size: 15px">Quantidade de acertos</p>
+  </div>
+</div>
+
+<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+  <div class="tile-stats">
+    <div class="icon"><i class="fa fa-close"></i></div>
+    <div class="count"><%= @user_statistic_info.wrong_questions %></div>
+    <h3>Erros</h3>
+    <p style="font-size: 15px">Quantidade de falhas</p>
+  </div>
+</div>

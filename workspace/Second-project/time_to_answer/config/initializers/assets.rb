@@ -14,10 +14,14 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 # app/assets
 Rails.application.config.assets.precompile += %w( admins_backoffice.js admins_backoffice.css 
-                                                  users_backoffice.js users_backoffice.css )
+                                                  users_backoffice.js users_backoffice.css
+                                                  admin_devise.js admin_devise.css
+                                                  user_devise.js user_devise.css
+                                                  site.js site.css )
 # lib/assets
 Rails.application.config.assets.precompile += %w( sb-admin-2.min.js sb-admin-2.min.css
                                                   gentelella-user.min.js gentelella-user.min.css
                                                   img.jpg undraw_posting_photo.svg undraw_profile_1.svg
                                                   undraw_profile_2.svg undraw_profile_3.svg undraw_profile.svg
-                                                  undraw_rocket.svg )
+                                                  undraw_rocket.svg surface-fix.js surface-fix.css
+                                                  navbar.css )

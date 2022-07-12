@@ -1,0 +1,52 @@
+<div class="jumbotron">
+  <h3><%= msg_jumbotron %></h3>
+</div>
+
+
+<% @questions.each do |question| %>
+  <%= form_with url: site_answer_path do |form| %>
+    <div class="card" style="width: 100%; background-color: #e7e7e7; margin-top: 20px;">
+      <div class="card-header">
+        
+        <span class="badge bg-primary" style="color: #fff; font-size:16px; ">
+          <%= link_to "#{question.subject.description} (#{question.subject.questions_count})", site_search_subject_path(question.subject_id, question.subject.description), style:"color: #fff" %>
+        </span>:
+        
+        <%= question.description %>
+        
+      </div>
+      <ul class="list-group list-group-flush">
+        <% question.answers.each do |answer| %>
+          <li style="list-style: none; margin-left: 20px; margin-top: 10px;"> 
+            <div class="radio">
+              <label>
+                <%= radio_button_tag 'answer_id', answer.id %>
+                <%= answer.description %>
+              </label>
+            </div>
+          </li>
+        <% end %>
+        <li style="list-style: none; margin: 20px;">
+          <%= form.submit "Enviar", class:"btn btn-primary", id:"submit_#{question.id}" %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
+<% if user_signed_in? %>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><%= paginate @questions %></li>
+  </ul>
+</nav>
+<% else %>
+  <div class="alert alert-warning" role="alert">
+    Efetue Login para continuar respondendo as questões.
+  </div>
+<% end %>
+
+
+  
+    
+  

@@ -22,10 +22,20 @@
             <%= form.label :description, class:"form-label" %>
             <%= form.text_area :description, class:"form-control"%>
           </div>
+
           <div class="mb-3">
             <%= form.label :subject_id, class:"form-label" %>
             <%= form.collection_select(:subject_id, @subjects, :id, :description, options = {}, class:"form-control")%>
           </div>
+
+          <div id="answers">
+            <%= form.fields_for :answers do |answer| %>
+              <%= render partial: "answer_fields", locals: { f: answer } %>
+            <% end %>
+
+            <%= link_to_add_association '[Adicionar Resposta]', form, :answers %>
+          </div>
+
           <button type="submit" class="btn btn-primary">Submit</button>
         <% end %>
       </div>

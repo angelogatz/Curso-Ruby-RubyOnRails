@@ -1,0 +1,29 @@
+function colorChange(){
+  let colorButton = document.getElementById("submit_<%= @answer.question_id %>");
+    
+  colorButton.classList.remove("btn-primary");
+  colorButton.classList.remove("btn-success");
+  colorButton.classList.remove("btn-danger");
+
+  if (<%= @answer.correct %>) {
+    colorButton.classList.add("btn-success");
+    $.bootstrapGrowl("Resposta CERTA!!! ;)", {
+      type: 'success', // (null, 'info', 'danger', 'success')
+      align: 'right', // ('left', 'right', or 'center')
+      allow_dismiss: true, // If true then will display a cross to close the popup.
+      stackup_spacing: 10 // spacing between consecutively stacked growls.
+      });
+  } else {
+    colorButton.classList.add("btn-danger");
+    $.bootstrapGrowl("Resposta ERRADA! :(", {
+      type: 'danger', // (null, 'info', 'danger', 'success')
+      align: 'right', // ('left', 'right', or 'center')
+      allow_dismiss: true, // If true then will display a cross to close the popup.
+      stackup_spacing: 10 // spacing between consecutively stacked growls.
+      });
+  }
+}
+colorChange()
+
+
+

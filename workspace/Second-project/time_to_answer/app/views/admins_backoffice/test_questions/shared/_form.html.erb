@@ -1,0 +1,14 @@
+<h1><%= action_message %></h1>
+<hr>
+
+<%= form_with(model: [ :admins_backoffice, @test], local: true) do |f| %>
+  <div id="questions">
+    <%= f.fields_for :questions do |question| %>
+      <%= render partial: "questions_fields", locals: { f: question } %>
+    <% end %>
+    
+  </div>
+  
+  <hr>
+  <button type="submit" class="btn btn-primary">Salvar</button>
+<% end %>

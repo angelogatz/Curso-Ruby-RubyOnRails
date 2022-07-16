@@ -1,0 +1,8 @@
+<div class="nested-fields">
+  <%= f.label :description %>
+  <br>
+  <% for question in @questions %>
+    <%= check_box_tag "cleaner[city_ids][]", question.id, @test.questions.include?(question) %>
+    <%=h question.description %><br />
+  <% end %>
+</div>

@@ -1,0 +1,31 @@
+
+
+<h1><%= action_message %></h1>
+<hr>
+
+<% if @test.errors.any? %>
+  <% @test.errors.full_messages.each do |message| %>
+    <span style="color: red"><%= message %></span>
+  <% end %>
+<% end %>
+<%= form_with(model: [ :admins_backoffice, @test], local: true) do  |f|%>
+  <div class="form-group">
+    <%=f.label :description %>
+    <%= f.text_field :description, class: "form-control", placeholder:"Nome da prova", id:"_name" %>
+    
+    <%=f.label :subject %>
+    <%= f.collection_select(:subject_id, @subjects, :id, :description, {}, class:"form-control") %>
+  </div>
+
+  
+  <%= f.submit "enviar", class:"btn btn-primary"%>
+<% end %>
+
+<script>
+  var btn = document.getElementById("HEYHEY");
+  var input_link = document.getElementById("subject_id")
+
+  input_link.addEventListener("change", () => {
+    btn.href = "<%= admins_backoffice_test_questions_path %>/?id="+input_link.value
+  })
+</script>

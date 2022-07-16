@@ -1,6 +1,6 @@
 class AdminStatisticInfo < ApplicationRecord
   EVENTS = {
-    total_users: "TOTAL_USERS",
+    total_users:     "TOTAL_USERS",
     total_questions: "TOTAL_QUESTIONS"
   }
 

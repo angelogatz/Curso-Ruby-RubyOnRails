@@ -1,0 +1,23 @@
+<%= form_with(model: [ :admins_backoffice, @test], local: true) do  |f|%>
+  <div class="form-group">
+    <%=f.label :description %>
+    <%= f.text_field :description, class: "form-control", placeholder:"Nome da prova", id:"_name" %>
+    
+    <%=f.label :subject %>
+    <%= f.collection_select(:subject_id, @subjects, :id, :description, {}, class:"form-control", disabled:true) %>
+    <%= f.submit "enviar", class:"btn btn-primary"%>
+    <hr>
+    <%= link_to admins_backoffice_test_questions_path(test: @test, id: @test.subject_id), class: "btn btn-primary btn-sm" do %>
+      Questões
+    <% end %>
+    <% end %>
+  </div>
+  <hr>
+  <% if @questions.length > 0 %>
+    <h3>Questões da prova</h3>
+    <% @questions.each do |question|%>
+      <%= sanitize question.description %>
+    <% end %>
+  <% else %>
+    <h3>Prova sem questões 😭😭😭😭</h3>
+  <% end %>

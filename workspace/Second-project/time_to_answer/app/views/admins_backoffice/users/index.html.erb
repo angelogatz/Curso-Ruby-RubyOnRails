@@ -1,0 +1,39 @@
+<h1><%= t('messages.listing', model: @users.model_name.human(count: @users.count)) %></h1>
+<%# <%= @admins.inspect %>
+<div class="col-sm-12">
+  <table class="table table-bordered table-hover dataTable" width="100%" style="width: 100%;">
+    <thead>
+      <tr role="row">
+        <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 56.75px;">#</th>
+        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 61px;"><%= translate_attribute(@users, :email) %></th>
+        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 21px; ">
+        <%= link_to new_admins_backoffice_user_path, class:"btn btn-success btn-circle", style:"width: 100%" do %>
+            <i class="fas fa-user-plus"></i>
+        <% end %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr class="odd">
+        <td class="sorting_1"><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td style="text-align: center">
+
+          <%= link_to edit_admins_backoffice_user_path(user), class:"btn btn-primary btn-circle" do %>
+            <i class="fas fa-pen"></i> 
+          <% end %>
+
+          <%= link_to admins_backoffice_user_path(user), style:"margin: 0 15px", class:"btn btn-danger btn-circle", method: :delete, data: { confirm: t('messages.confirm_with', item: user.email.truncate(15)) } do %>
+            <i class="fa fa-close"></i>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <%= paginate @users %>
+  </div>
+  
+</div>

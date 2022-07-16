@@ -39,14 +39,21 @@
               <!-- Nav Item - Dashboard -->
               <li class="nav-item">
                 <%= link_to admins_backoffice_welcome_index_path, class:"nav-link" do %>
-                <i class="fa fa-dashboard fa-fw"></i> Dashboard
+                <i class="fa fa-dashboard fa-fw"></i> Painel de controle
               <% end %>
               </li>
 
               <!-- Nav Item - Charts -->
               <li class="nav-item">
               <%= link_to admins_backoffice_admins_path, class:"nav-link" do %>
-                <i class="fas fa-users fa-fw"></i> administradores
+                <i class="fas fa-users fa-fw"></i> Administradores
+              <% end %>
+                  
+              </li>
+
+              <li class="nav-item">
+              <%= link_to admins_backoffice_users_path, class:"nav-link" do %>
+                <i class="fas fa-users fa-fw"></i> Usuários
               <% end %>
                   
               </li>
@@ -63,7 +70,12 @@
 
               <li class="nav-item">
               <%= link_to admins_backoffice_questions_path, class:"nav-link" do %>
-                <i class="fas fa-pen"></i> Questões
+                <i class="fas fa-clipboard"></i> Questões
+              <% end %>
+
+              <li class="nav-item">
+                <%= link_to admins_backoffice_tests_path, class:"nav-link" do %>
+                    <i class="fas fa-pen"></i> Provas
               <% end %>
                   
               </li>

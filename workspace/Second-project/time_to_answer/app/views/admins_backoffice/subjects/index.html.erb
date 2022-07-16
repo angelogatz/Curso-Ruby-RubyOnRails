@@ -7,9 +7,14 @@
         <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 56.75px;">#</th>
         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 61px;"><%= translate_attribute(@subjects, :description) %></th>
         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 21px; ">
-        <%= link_to new_admins_backoffice_subject_path, class:"btn btn-success btn-circle", style:"width: 100%" do %>
-            <i class="fas fa-user-plus"></i>
-        <% end %>
+        <div style=" justify-content: center; display: flex; flex-direction: row">
+          <%= link_to new_admins_backoffice_subject_path, class:"btn btn-success btn-circle", style:"width: 25%; margin: 5px" do %>
+              <i class="fas fa-user-plus"></i>
+          <% end %>
+          <%= link_to admins_backoffice_subjects_path(format: :pdf), class:"btn btn-danger btn-circle", style:"width: 25%; margin: 5px" do %>
+              <i class="fa fa-file-pdf-o fa-2x"></i>
+          <% end %>
+        </div>
         </th>
       </tr>
     </thead>

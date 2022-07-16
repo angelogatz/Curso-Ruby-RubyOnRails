@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">New User Account</h1>
+  </div>
+</div>
+
+<div class="row">
+<% if @user.errors.any? %>
+  <div class="alert alert-danger" style="margin: auto; width: 80%; height: auto; text-align: left;" role="alert">
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+      <li> <%= message %> </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= form_with(model: [ :admins_backoffice, @user ], local: true) do |form| %>
+          <div class="mb-3">
+            <%= form.label :email, class:"form-label" %>
+            <%= form.text_field :email, class:"form-control", placeholder:"jhondev@jhon.com" %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :password, class:"form-label" %>
+            <%= form.password_field :password, class:"form-control", placeholder:"password" %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :password_confirmation, class:"form-label" %>
+            <%= form.password_field :password_confirmation, class:"form-control", placeholder:"password confirmation" %>
+          </div>
+          <button type="submit" class="btn btn-primary">Criar</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

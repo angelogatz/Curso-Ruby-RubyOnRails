@@ -44,6 +44,30 @@
 
           <%= form.fields_for :user_profile do |profile_form| %>
             <div class="item form-group">
+              <%= profile_form.label :zip_code, class:" col-form-label col-md-3 col-sm-3 label-align" %>
+              <div class="col-md-6 col-sm-6 ">
+                <div class="col-md-6 col-sm-6 ">
+                  <div class="input-group" style="width: 400px">
+                    <%= profile_form.text_field :zip_code, class:"form-control", style:"margin-left: -10px" %>
+                    <span class="input-group-btn">
+                      <%= link_to 'Buscar', users_backoffice_zip_code_path, remote: true, class:"btn btn-primary", id:"zip-code-link" %>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <script>
+              let zipCodeInput = document.getElementById("user_user_profile_attributes_zip_code")
+              let zipCodeLink = document.getElementById("zip-code-link")
+
+              zipCodeInput.addEventListener("change", () =>{
+                zipCodeLink.href = '<%= users_backoffice_zip_code_path %>/?zip_code='+zipCodeInput.value
+              });
+
+            </script>
+
+            <div class="item form-group">
               <%= profile_form.label :address, class:" col-form-label col-md-3 col-sm-3 label-align" %>
               <div class="col-md-6 col-sm-6 ">
                 <%= profile_form.text_field :address, class:"form-control" %>

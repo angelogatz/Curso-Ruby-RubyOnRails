@@ -3,7 +3,7 @@ class UsersBackoffice::TestsController < UsersBackofficeController
   before_action :set_results, only: [:results, :show]
 
   def index
-    console
+    @nota
     @tests = Test.all.includes(:subject).includes(:questions)
   end
 
@@ -26,7 +26,6 @@ class UsersBackoffice::TestsController < UsersBackofficeController
   end
 
   def results
-    @final
   end
 
   def show
@@ -43,28 +42,28 @@ class UsersBackoffice::TestsController < UsersBackofficeController
   end
 
   def set_results
-    crazyQuery = TestAnswer.select(:question_id, :answer_id).where(:user_id => current_user.id, :test_id => @test.id).to_a
+    questions_answers_id = TestAnswer.select(:question_id, :answer_id).where(:user_id => current_user.id, :test_id => @test.id).to_a
     
-    @myCrazyHash = {}
+    @all_test_answers = {}
 
-    crazyQuery.each do |query|
-      @myCrazyHash[query.question_id] = query.answer_id
+    questions_answers_id.each do |query|
+      @all_test_answers[query.question_id] = query.answer_id
     end
 
     # correct answers
-    @corrects = Answer.select(:id).where(:id => @myCrazyHash.values, :correct => true).to_a
+    @correct_answers = Answer.select(:id).where(:id => @all_test_answers.values, :correct => true).to_a
 
     # weights
-    heyhey = Question.select(:id, :weight).where(:id => @myCrazyHash.keys).to_a
+    question_weight = Question.select(:id, :weight).where(:id => @all_test_answers.keys).to_a
 
     @weights = {}
-    heyhey.each do |w|
+    question_weight.each do |w|
       @weights[w.id] = w.weight
     end
     
     test = []
-    @corrects.each do |correct|
-      response = @myCrazyHash.key(correct.id)
+    @correct_answers.each do |correct|
+      response = @all_test_answers.key(correct.id)
       test.push( @weights[response] )
     end
 
@@ -73,7 +72,7 @@ class UsersBackoffice::TestsController < UsersBackofficeController
       total += w
     end
 
-    @final = (test.sum / total.to_f) * 10
+    @nota = (test.sum / total.to_f) * 10
   end
 
 end

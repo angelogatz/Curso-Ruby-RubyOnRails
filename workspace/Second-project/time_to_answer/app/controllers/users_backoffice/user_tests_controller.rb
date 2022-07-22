@@ -12,15 +12,15 @@ class UsersBackoffice::UserTestsController < UsersBackofficeController
     @user_test.test = @test
     if @user_test.save!
 
-      redirect_to users_backoffice_test_user_test_path(@user_test, :test_id), notice: "tu finalizou a prova bichão!"
+      redirect_to users_backoffice_test_user_test_path(@user_test.test.id, @user_test), notice: "tu finalizou a prova bichão!!!"
     else
       render "new"
     end
   end
 
   def show
-    @test = Test.find(params[:test_id])
     @user_test = UserTest.find(params[:id])
+    @user_answers = @user_test.answer_ids
   end
 
   private

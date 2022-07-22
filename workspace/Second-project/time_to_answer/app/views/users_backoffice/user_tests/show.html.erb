@@ -2,7 +2,7 @@
 <div class="x_title" style="width: 100%">
   <h3 style="text-align: center">Testes Realizados</h3> 
   <h1>
-    <%= @test.description %> 
+    <%= @user_test.test.description %> 
     <br><br>
     <sub>
       <small class="btn btn-primary" >
@@ -16,8 +16,7 @@
   <div class="clearfix"></div>
 </div>
 
-<%= form_for([:users_backoffice, :test, @user_test], local: true) do |f| %>
-  <% @test.questions.each do |question| %>
+  <% @user_test.test.questions.each do |question| %>
     <div class="card" style="margin: 10px">
       <h5 class="card-header">
         Questão
@@ -26,21 +25,16 @@
       <div class="card-body">
         <h5 class="card-title"><%= sanitize question.description %></h5>
         <ul style="list-style:none;">
-        <%= f.fields_for :test_answers do |test_answers_form| %>
           <div class="nested-fields">
           <br> 
             <br>
             <% question.answers.each do |answer| %>
-              <%= test_answers_form.radio_button :answer_id, answer.id, (@all_test_answers.values.include?(answer.id)), disabled: true %>
+              <%= radio_button_tag "form_questions[#{question.id}][]", answer.id, (@user_answers.include?(answer.id)), disabled: true %>
               <%=h sanitize answer.description %><br />
             <% end %>
           </div>
-        <% end %>
-            
             <hr>
         </ul>
       </div>
     </div>
   <% end %>
-  <%= f.submit "Finalizar Avaliação", class:"btn btn-primary" %>
-<% end %>

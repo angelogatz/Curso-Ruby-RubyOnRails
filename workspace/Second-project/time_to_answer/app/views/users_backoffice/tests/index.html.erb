@@ -15,7 +15,7 @@
       <th scope="row"> <%= test.id  %></th>
       <td>
         <% if current_user.test_ids.include?(test.id) %>
-          <%= link_to "Teste Finalizado", users_backoffice_test_user_test_path(test.id, test.id), class:'btn btn-primary', id:"clicked" %>
+          <%= link_to "Teste Finalizado", users_backoffice_test_user_test_path(test.id, @user_test), class:'btn btn-info', id:"clicked" %>
         <% else %>
           <%= link_to test.description, new_users_backoffice_test_user_test_path(test.id), class:'btn btn-primary', id:"clicked" %>
         <% end %>

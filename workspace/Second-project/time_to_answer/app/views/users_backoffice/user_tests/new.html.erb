@@ -1,0 +1,34 @@
+<h3><%= @test.description %></h3>
+
+<%= form_for([:users_backoffice, :test, @user_test], local: true) do |f| %>
+  <% @test.questions.each do |question| %>
+    <div class="card" style="margin: 10px">
+      <h5 class="card-header">
+        Questão
+        <%= question.id  %> 
+      </h5>
+      <div class="card-body">
+        <h5 class="card-title"><%= sanitize question.description %></h5>
+        <ul style="list-style:none;">
+        <%= f.fields_for :test_answers do |test_answers_form| %>
+          <div class="nested-fields">
+          <br> 
+            <br>
+            <% question.answers.each do |answer| %>
+              <%= test_answers_form.radio_button :answer_id, answer.id %>
+              <%=h sanitize answer.description %><br />
+            <% end %>
+          </div>
+        <% end %>
+            
+            <hr>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <%= f.submit "Finalizar Avaliação", class:"btn btn-primary" %>
+<% end %>
+
+
+
+
